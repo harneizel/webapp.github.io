@@ -10,3 +10,8 @@ body {
     color: var(--tg-theme-text-color);
     background: var(--tg-theme-bg-color);
 }
+
+button {
+    color: red;
+    background: blue;
+}
