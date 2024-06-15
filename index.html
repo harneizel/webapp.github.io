@@ -39,7 +39,7 @@
         }
 
         p {
-            width: 250px;
+            width: 350px;
             margin: 0 auto;
 
         button {
@@ -85,7 +85,7 @@
     <div id="main">
         <h1>Онлайн магазин</h1>
         <img src="https://icons.iconarchive.com/icons/iconarchive/fat-sugar-food/256/Pizza-icon.png">
-        <p>Вкусная пицца, подаваемая горячей</p>
+        <p>Вкусная пицца, подаваемая горячей.</p>
         <button id="buy">Купить</button>
     </div>
     <form id="from">
@@ -99,6 +99,7 @@
         let tg = window.Telegram.WebApp;
         let buy = document.getElementById("buy");
         let order = document.getElementById("order);
+        tg.expand();
 
         buy.addEventListener("click" () => {
             document.getElementById("main").style.display = "none";
