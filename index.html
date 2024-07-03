@@ -1,39 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;500&display=swap')
-
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--tg-theme-bg-color);
+            color: var(--tg-theme-text-color);
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background-color: var(--tg-theme-secondary-bg-color);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: var(--tg-theme-hint-color);
+            margin-bottom: 20px;
+        }
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .highlight {
+            background-color: var(--tg-theme-button-color);
+            color: var(--tg-theme-button-text-color);
+            padding: 2px 5px;
+            border-radius: 5px;
+        }
+        .interests span {
+            display: inline-block;
+            background-color: var(--tg-theme-button-color);
+            color: var(--tg-theme-button-text-color);
+            padding: 5px;
+            border-radius: 5px;
+            margin: 2px;
+        }
+        .button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: none;
+            border-radius: 5px;
+            background-color: var(--tg-theme-button-color);
+            color: var(--tg-theme-button-text-color);
+            text-align: center;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: var(--tg-theme-button-color);
+        }
     </style>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
-    <div id="usercard"> <!--Карта профиля, человека, который к нам обратился-->
+    <div class="container">
+        <div class="avatar"></div>
+        <div class="title">Name Family</div>
+        <div class="highlight">Десятка 1 млн+</div>
+        <p>Предприниматель, владелец сети заводов ООО "Заводы России".</p>
+        <p>Оборот компании 10 триллионов долларов в сутки.</p>
+        <p>Интересы: шахматы, сноуборд, дайвинг....</p>
+        <div class="interests">
+            <span>Ecome</span>
+            <span>Retail</span>
+            <span>Marketing</span>
+        </div>
+        <button class="button">База Знаний</button>
+        <button class="button">Нетворкинг</button>
+        <button class="button">Трекинг привычек / Список желаний на год</button>
+        <button class="button">ДОДы</button>
+        <button class="button">Календарь событий</button>
     </div>
-    <p>Just text</p> <!--Просто текст для проверки-->
-    <a class="link" href="https://mihailgok.ru">Link</a> <!--Просто ссылка для проверки-->
-    <p class="hint">Some little hint</p> <!--Просто текст-подсказка для проверки-->
-    <button id="btn" class="button">Show/Hide Main Button</button> <!--Кнопка, чтобы скрыть / показать основную кнопку-->
-    <button id="btnED" class="button">Enable/Disable Main Button</button> <!--Кнопка, чтобы сделать кнопку активной/неактивной-->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
-        let tg = window.Telegram.WebApp;
-
-        tg.MainButton.text = "Changed Text"; //изменяем текст кнопки
-        tg.MainButton.setText("Changed Text1"); //изменяем текст кнопки иначе
-        tg.MainButton.textColor = "#F55353"; //изменяем цвет текста кнопки
-        tg.MainButton.color = "#143F6B"; //изменяем цвет бэкграунда кнопки
-        tg.MainButton.setParams({"color": "#143F6B"}); //так изменяются все параметры
-
-        btn.addEventListener('click', function(){ //вешаем событие на нажатие html-кнопки
-            if (tg.MainButton.isVisible){ //если кнопка показана
-                tg.MainButton.hide() //скрываем кнопку
-            }
-            else{ //иначе
-                tg.MainButton.show() //показываем
-                }
+        Telegram.WebApp.onEvent('themeChanged', function() {
+            document.body.style.backgroundColor = Telegram.WebApp.themeParams.bg_color;
+            document.body.style.color = Telegram.WebApp.themeParams.text_color;
         });
+
+        if (Telegram.WebApp.themeParams) {
+            document.body.style.backgroundColor = Telegram.WebApp.themeParams.bg_color;
+            document.body.style.color = Telegram.WebApp.themeParams.text_color;
+        }
     </script>
 </body>
 </html>
