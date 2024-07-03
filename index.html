@@ -17,7 +17,7 @@
             margin: auto;
             background-color: var(--tg-theme-secondary-bg-color);
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
             padding: 20px;
         }
         .avatar {
@@ -69,7 +69,9 @@
 <body>
     <div class="container">
         <div class="avatar" id="avatar"></div>
-        <div class="title">Name Family</div>
+        <div class="title">
+            <p id="userName"></p>
+        </div>
         <div class="highlight">Десятка 1 млн+</div>
         <p>Предприниматель, владелец сети заводов ООО "Заводы России".</p>
         <p>Оборот компании 10 триллионов долларов в сутки.</p>
@@ -87,21 +89,21 @@
     </div>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
-        Telegram.WebApp.ready(function() {
-            // Fetch user data
-            let user = Telegram.WebApp.initDataUnsafe.user;
+         // Получаем элементы userCard, userName
+        let usercard = document.getElementById("usercard");
+        let userName = document.getElementById("userName");
+        let userText = document.getElementById("userText");
 
-            // Check if the user object exists and has a profile photo
-            if (user && user.photo_url) {
-                document.getElementById('avatar').style.backgroundImage = url(${user.photo_url});
-            } else {
-                document.getElementById('avatar').innerText = 'No Photo';
-            }
+        // Проверяем доступность данных пользователя
+        if (tg.initDataUnsafe) {
+            // Заполняем userName данными пользователя
+            userName.innerText = ${tg.initDataUnsafe.user.first_name} ${tg.initDataUnsafe.user.last_name};
 
-            // Apply theme settings
-            document.body.style.backgroundColor = Telegram.WebApp.themeParams.bg_color;
-            document.body.style.color = Telegram.WebApp.themeParams.text_color;
-        });
+
+        } else {
+            // Пользовательские данные недоступны
+            userName.innerText = "Информация о пользователе недоступна";
+        }
 
         Telegram.WebApp.onEvent('themeChanged', function() {
             document.body.style.backgroundColor = Telegram.WebApp.themeParams.bg_color;
