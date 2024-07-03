@@ -10,15 +10,14 @@
             background-color: var(--tg-theme-bg-color);
             color: var(--tg-theme-text-color);
             margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+
         }
         .container {
             max-width: 600px;
             margin: auto;
             background-color: var(--tg-theme-secondary-bg-color);
-
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             padding: 20px;
         }
         .avatar {
@@ -44,7 +43,7 @@
         .interests span {
             display: inline-block;
             background-color: var(--tg-theme-button-color);
-            color: black;
+            color: var(--tg-theme-button-text-color);
             padding: 5px;
             border-radius: 5px;
             margin: 2px;
@@ -62,7 +61,7 @@
             cursor: pointer;
         }
         .button:hover {
-            background-color: var(--tg-theme-button-color);
+            background-color: var(--tg-theme-button-color-hover);
         }
     </style>
 </head>
@@ -107,11 +106,6 @@
             document.body.style.backgroundColor = Telegram.WebApp.themeParams.bg_color;
             document.body.style.color = Telegram.WebApp.themeParams.text_color;
         });
-
-        if (Telegram.WebApp.themeParams) {
-            document.body.style.backgroundColor = Telegram.WebApp.themeParams.bg_color;
-            document.body.style.color = Telegram.WebApp.themeParams.text_color;
-        }
     </script>
 </body>
 </html>
