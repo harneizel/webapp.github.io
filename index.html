@@ -43,7 +43,7 @@
         .interests span {
             display: inline-block;
             background-color: var(--tg-theme-button-color);
-
+            color: black;
             padding: 5px;
             border-radius: 5px;
             margin: 2px;
@@ -97,7 +97,7 @@
         // Проверяем доступность данных пользователя
         if (tg.initDataUnsafe) {
             // Заполняем userName данными пользователя
-            userName.innerText = ${tg.initDataUnsafe.user.first_name} ${tg.initDataUnsafe.user.last_name};
+            userName.innerText = ${tg.initDataUnsafe.user.first_name};
 
 
         } else {
