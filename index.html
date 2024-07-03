@@ -10,7 +10,9 @@
             background-color: var(--tg-theme-bg-color);
             color: var(--tg-theme-text-color);
             margin: 0;
-            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         .container {
             max-width: 600px;
@@ -25,6 +27,8 @@
             border-radius: 50%;
             background-color: var(--tg-theme-hint-color);
             margin-bottom: 20px;
+            background-size: cover;
+            background-position: center;
         }
         .title {
             font-size: 24px;
@@ -64,7 +68,7 @@
 </head>
 <body>
     <div class="container">
-        <div class="avatar"></div>
+        <div class="avatar" id="avatar"></div>
         <div class="title">Name Family</div>
         <div class="highlight">Десятка 1 млн+</div>
         <p>Предприниматель, владелец сети заводов ООО "Заводы России".</p>
@@ -83,6 +87,22 @@
     </div>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
+        Telegram.WebApp.ready(function() {
+            // Fetch user data
+            let user = Telegram.WebApp.initDataUnsafe.user;
+
+            // Check if the user object exists and has a profile photo
+            if (user && user.photo_url) {
+                document.getElementById('avatar').style.backgroundImage = url(${user.photo_url});
+            } else {
+                document.getElementById('avatar').innerText = 'No Photo';
+            }
+
+            // Apply theme settings
+            document.body.style.backgroundColor = Telegram.WebApp.themeParams.bg_color;
+            document.body.style.color = Telegram.WebApp.themeParams.text_color;
+        });
+
         Telegram.WebApp.onEvent('themeChanged', function() {
             document.body.style.backgroundColor = Telegram.WebApp.themeParams.bg_color;
             document.body.style.color = Telegram.WebApp.themeParams.text_color;
