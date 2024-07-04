@@ -69,9 +69,7 @@
 <body>
     <div class="container">
         <div class="avatar" id="avatar"></div>
-        <div id="usercard">
-            <p id="userName"></p>
-        </div>
+        <div id="usercard"></div>
         <div class="highlight">Десятка 1 млн+</div>
         <p>Предприниматель, владелец сети заводов ООО "Заводы России".</p>
         <p>Оборот компании 10 триллионов долларов в сутки.</p>
@@ -90,14 +88,21 @@
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
          // Получаем элементы userCard, userName
+        let tg = window.Telegram.WebApp;
+
+        tg.expand();
+
         let usercard = document.getElementById("usercard");
-        let userName = document.getElementById("userName");
-        let userText = document.getElementById("userText");
+        let profName = document.createElement('p')
+        profName.innerText = '${tg.initDataUnsafe.user.first_name}';
+        usercard.appendChild(profName)
+
+        let userName = initDataU.getElementById("userName");
 
         // Проверяем доступность данных пользователя
-        if (tg.initDataUnsafe) {
+        if (initDataU) {
             // Заполняем userName данными пользователя
-            userName.innerText = ${tg.initDataUnsafe.user.first_name};
+            userName.innerText = ${initDataU.user.first_name};
 
 
         } else {
