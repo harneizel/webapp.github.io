@@ -70,6 +70,7 @@
     <div class="container">
         <div class="avatar" id="avatar"></div>
         <div id="usercard"></div>
+        <p>Just text</p>
         <div class="highlight">Десятка 1 млн+</div>
         <p>Предприниматель, владелец сети заводов ООО "Заводы России".</p>
         <p>Оборот компании 10 триллионов долларов в сутки.</p>
@@ -79,7 +80,7 @@
             <span>Retail</span>
             <span>Marketing</span>
         </div>
-        <button class="button">База Знаний</button>
+        <button id="btn" class="button">База Знаний</button>
         <button class="button">Нетворкинг</button>
         <button class="button">Трекинг привычек / Список желаний на год</button>
         <button class="button">ДОДы</button>
@@ -87,10 +88,10 @@
     </div>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
-         // Получаем элементы userCard, userName
         let tg = window.Telegram.WebApp;
 
         tg.expand();
+
 
         let usercard = document.getElementById("usercard");
         let profName = document.createElement('p');
@@ -99,16 +100,14 @@
 
         let userName = initDataU.getElementById("userName");
 
-        // Проверяем доступность данных пользователя
-        if (initDataU) {
-            // Заполняем userName данными пользователя
-            userName.innerText = ${initDataU.user.first_name};
-
-
-        } else {
-            // Пользовательские данные недоступны
-            userName.innerText = "Информация о пользователе недоступна";
-        }
+        btn.addEventListener('click', function(){
+            if (tg.MainButton.isVisible){
+                tg.MainButton.hide()
+            }
+            else {
+                tg.MainButton.show()
+            }
+        });
 
         Telegram.WebApp.onEvent('themeChanged', function() {
             document.body.style.backgroundColor = Telegram.WebApp.themeParams.bg_color;
