@@ -69,7 +69,8 @@
 <body>
     <div class="container">
         <div class="avatar" id="avatar"></div>
-        <div id="usercard"></div>
+        <div id="usercard">
+        </div>
         <p>Just text</p>
         <div class="highlight">Десятка 1 млн+</div>
         <p>Предприниматель, владелец сети заводов ООО "Заводы России".</p>
@@ -92,13 +93,18 @@
 
         tg.expand();
 
+        tg.MainButton.text = "Changed Text";
+        tg.MainButton.setText("Changed Text1");
+        tg.MainButton.textColor = "#F55353";
+        tg.MainButton.color = "#143F6B";
+        tg.MainButton.setParams({"color": "#143F6B"});
 
         let usercard = document.getElementById("usercard");
         let profName = document.createElement('p');
-        profName.innerText = ${tg.initDataUnsafe.user.first_name};
+        profName.innerText = '${tg.initDataUnsafe.user.first_name}
+        ${tg.initDataUnsafe.user.last_name}';
         usercard.appendChild(profName);
 
-        let userName = initDataU.getElementById("userName");
 
         btn.addEventListener('click', function(){
             if (tg.MainButton.isVisible){
@@ -108,6 +114,8 @@
                 tg.MainButton.show()
             }
         });
+
+
 
         Telegram.WebApp.onEvent('themeChanged', function() {
             document.body.style.backgroundColor = Telegram.WebApp.themeParams.bg_color;
