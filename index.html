@@ -90,8 +90,8 @@
     </div>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
-        var min = 0
-        document.getElementById("min").innerHTML = min
+        var min = 0;
+        document.getElementById("min").innerHTML = min;
 
         let tg = window.Telegram.WebApp;
 
@@ -105,8 +105,7 @@
 
         let usercard = document.getElementById("usercard");
         let profName = document.createElement('p');
-        document.getElementById("usercard").innerText = '${tg.initDataUnsafe.user.first_name}
-        ${tg.initDataUnsafe.user.last_name}';
+        document.getElementById("usercard").innerHTML = '${tg.initDataUnsafe.user.first_name} ${tg.initDataUnsafe.user.last_name}';
         usercard.appendChild(profName);
 
 
