@@ -69,14 +69,17 @@
 <body>
     <div class="container">
         <div class="avatar" id="avatar"></div>
-        <div id="usercard"></div>
+        <div id="usercard">
+            <div id="name"></div>
+            <div id="family"></div>
+        </div>
 
         <h1 id="time">Итог - <div id="min"></div> </h1>
 
         <div class="highlight">Десятка 1 млн+</div>
         <p>Предприниматель, владелец сети заводов ООО "Заводы России".</p>
         <p>Оборот компании 10 триллионов долларов в сутки.</p>
-        <p>Интересы: шахматы, сноуборд, велос ....</p>
+        <p>Интересы: шахматы, сноуборд, велоспорт ....</p>
         <div class="interests">
             <span>Ecome</span>
             <span>Retail</span>
@@ -105,7 +108,8 @@
 
         let usercard = document.getElementById("usercard");
         let profName = document.createElement('p');
-        document.getElementById("usercard").innerHTML = '${tg.initDataUnsafe.user.first_name} ${tg.initDataUnsafe.user.last_name}';
+        document.getElementById("name").innerHTML = tg.initDataUnsafe.user.first_name;
+        document.getElementById("family").innerHTML =tg.initDataUnsafe.user.last_name;
         usercard.appendChild(profName);
 
 
