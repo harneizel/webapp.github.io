@@ -20,9 +20,6 @@
 
             padding: 20px;
         }
-        .namephoto {
-            display: inline-block
-        }
 
         .avatar {
             width: 100px;
@@ -37,6 +34,7 @@
             font-size: 24px;
             font-weight: bold;
             margin-bottom: 10px;
+            display: inline-block
         }
         .highlight {
             background-color: var(--tg-theme-button-color);
@@ -72,21 +70,22 @@
 </head>
 <body>
     <div class="container">
-        <div class="namephoto">
+        <div class="usercard">
             <div class="avatar" id="avatar"></div>
+        </div>
+        <div class="usercard" id="usercard">
             <h1>
-                <div id="usercard">
-                    <div id="name"></div>
-                    <div id="family"></div>
-                </div>
+                <div id="name"></div>
+                <div id="family"></div>
             </h1>
         </div>
+
 
 
         <div class="highlight">Десятка 1 млн+</div>
         <p>Предприниматель, владелец сети заводов ООО "Заводы России".</p>
         <p>Оборот компании 10 триллионов долларов в сутки.</p>
-        <p>Интересы: шахматы, сноуборд, велоспорт ....</p>
+        <p>Интересы: шахматы, сноуборд, велоспортт ....</p>
         <div class="interests">
             <span>Ecome</span>
             <span>Retail</span>
