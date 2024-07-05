@@ -29,8 +29,14 @@
             background-size: cover;
             background-position: center;
         }
+        .userprof{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            padding: 20px;
+        }
         .usercard {
-            display: inline-block
+            height: 100px
         }
         .highlight {
             background-color: var(--tg-theme-button-color);
@@ -66,14 +72,15 @@
 </head>
 <body>
     <div class="container">
-        <div class="usercard">
+        <div class="userprof">
             <div class="avatar" id="avatar"></div>
-        </div>
-        <div class="usercard" id="usercard">
-            <h1>
-                <span id="name"></span>
-                <span id="family"></span>
-            </h1>
+
+            <div class="usercard" id="usercard">
+                <h1>
+                    <span id="name"></span>
+                    <span id="family"></span>
+                </h1>
+            </div>
         </div>
 
 
@@ -81,7 +88,7 @@
         <div class="highlight">Десятка 1 млн+</div>
         <p>Предприниматель, владелец сети заводов ООО "Заводы России".</p>
         <p>Оборот компании 10 триллионов долларов в сутки.</p>
-        <p>Интересы: шахматы, сноуборд, велоспортт ....</p>
+        <p>Интересы: шахматы, сноуборд, велоспортт ...</p>
         <div class="interests">
             <span>Ecome</span>
             <span>Retail</span>
