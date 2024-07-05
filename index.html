@@ -20,6 +20,10 @@
 
             padding: 20px;
         }
+        .namephoto {
+            display: inline-block
+        }
+
         .avatar {
             width: 100px;
             height: 100px;
@@ -68,13 +72,16 @@
 </head>
 <body>
     <div class="container">
-        <div class="avatar" id="avatar"></div>
-        <div id="usercard">
-            <div id="name"></div>
-            <div id="family"></div>
+        <div class="namephoto">
+            <div class="avatar" id="avatar"></div>
+            <h1>
+                <div id="usercard">
+                    <div id="name"></div>
+                    <div id="family"></div>
+                </div>
+            </h1>
         </div>
 
-        <h1 id="time">Итог - <div id="min"></div> </h1>
 
         <div class="highlight">Десятка 1 млн+</div>
         <p>Предприниматель, владелец сети заводов ООО "Заводы России".</p>
@@ -93,9 +100,6 @@
     </div>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
-        var min = 0;
-        document.getElementById("min").innerHTML = min;
-
         let tg = window.Telegram.WebApp;
 
         tg.expand();
@@ -106,8 +110,6 @@
         tg.MainButton.color = "#143F6B";
         tg.MainButton.setParams({"color": "#143F6B"});
 
-        let usercard = document.getElementById("usercard");
-        let profName = document.createElement('p');
         document.getElementById("name").innerHTML = tg.initDataUnsafe.user.first_name;
         document.getElementById("family").innerHTML =tg.initDataUnsafe.user.last_name;
         usercard.appendChild(profName);
