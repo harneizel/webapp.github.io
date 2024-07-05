@@ -69,13 +69,12 @@
 <body>
     <div class="container">
         <div class="avatar" id="avatar"></div>
-        <div id="usercard">
-        </div>
+        <div id="usercard"></div>
         <p>Just text</p>
         <div class="highlight">Десятка 1 млн+</div>
         <p>Предприниматель, владелец сети заводов ООО "Заводы России".</p>
         <p>Оборот компании 10 триллионов долларов в сутки.</p>
-        <p>Интересы: шахматы, сноуборд ....</p>
+        <p>Интересы: шахматы, сноуборд, велоспорт ....</p>
         <div class="interests">
             <span>Ecome</span>
             <span>Retail</span>
@@ -101,7 +100,7 @@
 
         let usercard = document.getElementById("usercard");
         let profName = document.createElement('p');
-        profName.innerText = '${tg.initDataUnsafe.user.first_name}
+        document.getElementById("usercard").innerText = '${tg.initDataUnsafe.user.first_name}
         ${tg.initDataUnsafe.user.last_name}';
         usercard.appendChild(profName);
 
