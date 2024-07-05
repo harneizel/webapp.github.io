@@ -70,11 +70,13 @@
     <div class="container">
         <div class="avatar" id="avatar"></div>
         <div id="usercard"></div>
-        <p>Just text</p>
+
+        <h1 id="time">Итог - <div id="min"></div> </h1>
+
         <div class="highlight">Десятка 1 млн+</div>
         <p>Предприниматель, владелец сети заводов ООО "Заводы России".</p>
         <p>Оборот компании 10 триллионов долларов в сутки.</p>
-        <p>Интересы: шахматы, сноуборд, велоспорт ....</p>
+        <p>Интересы: шахматы, сноуборд, велос ....</p>
         <div class="interests">
             <span>Ecome</span>
             <span>Retail</span>
@@ -88,6 +90,9 @@
     </div>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
+        var min = 0
+        document.getElementById("min").innerHTML = min
+
         let tg = window.Telegram.WebApp;
 
         tg.expand();
