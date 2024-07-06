@@ -43,8 +43,6 @@
             display: block;
             width: 30px;
             height: 30px;
-            padding: 10px;
-            margin: 5px 0;
             border: none;
             border-radius: 5px;
             background-color: var(--tg-theme-button-color);
@@ -55,11 +53,17 @@
         .button:hover {
             background-color: var(--tg-theme-button-color-hover);
         }
-        .choise {
+        .previous{
             display: flex;
-            flex-direction: row;
+            justify-content: flex-start;
+        }
+        .next{
+            display: flex;
+            justify-content: flex-end;
         }
         .photo {
+            display: flex;
+            justify-content: center;
             margin: 0 auto;
             width: 300px;
             height: 300px;
@@ -80,22 +84,22 @@
         <div class="back">
             <button class="button_back" onclick="window.location.href='index.html';">Назад</button>
         </div>
-        <h1>Подходящие по интересамм</h1>
+
+        <h1>Подходящие по интересам</h1>
         <div class="search">
             <input type="text" name="interests" placeholder="Введите интересующие вас параметры...">
         </div>
 
-        <div class="choise">
+        <div class="photo">
             <div class="previous">
                 <button class="button"><</button>
             </div>
-            <div class="photo">
-                <p>Фотка типа</p>
-            </div>
+            <p>Фотка типа</p>
             <div class="next">
                 <button class="button">></button>
             </div>
         </div>
+
     </div>
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
