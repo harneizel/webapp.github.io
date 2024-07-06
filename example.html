@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowledge</title>
+    <style>
+        .container {
+                max-width: 600px;
+                margin: auto;
+                background-color: var(--tg-theme-secondary-bg-color);
+                border-radius: 10px;
+                padding: 20px;
+            }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--tg-theme-bg-color);
+            color: var(--tg-theme-text-color);
+            margin: 0;
+
+
+        }
+        .back button {
+            display: block;
+            width: 80px;
+            height: 30px;
+            padding: 10px;
+            margin: 5px 0;
+            border: none;
+            border-radius: 5px;
+            background-color: var(--tg-theme-button-color);
+            color: var(--tg-theme-button-text-color);
+            text-align: center;
+            cursor: pointer;
+        }
+        .button {
+            display: block;
+            width: 100%;
+            height: 50px;
+            padding: 10px;
+            margin: 5px 0;
+            border: none;
+            border-radius: 5px;
+            background-color: var(--tg-theme-button-color);
+            color: var(--tg-theme-button-text-color);
+            text-align: center;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: var(--tg-theme-button-color-hover);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="back">
+            <button class="button_back" onclick="window.location.href='index.html';">Назад</button>
+        </div>
+
+    </div>
+
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+        let tg = window.Telegram.WebApp;
+
+        Telegram.WebApp.onEvent('themeChanged', function() {
+            document.body.style.backgroundColor = Telegram.WebApp.themeParams.bg_color;
+            document.body.style.color = Telegram.WebApp.themeParams.text_color;
+        });
+        </script>
+</body>
+</html>
