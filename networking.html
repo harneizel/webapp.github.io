@@ -55,22 +55,27 @@
         }
         .previous{
             display: inline;
+            mapping: 20px;
         }
 
         .photo {
             display: inline;
 
             margin: 0 auto;
-            width: 300px;
-            height: 300px;
+            width: 200px;
+            height: 200px;
             background-color: var(--tg-theme-hint-color);
             margin-bottom: 20px;
             margin-top: 30px;
             border-radius: 10px;
         }
+        .viewing {
+            display: flex;
+            align-items: center;
+        }
         .next{
             display: inline;
-
+            mapping: 20px;
         }
         .search input {
             width: 100%;
@@ -106,19 +111,21 @@
             <button class="button_back" onclick="window.location.href='index.html';">Назад</button>
         </div>
 
-        <h1>Подходящие по интересамм</h1>
+        <h1>Подходящие по интересам</h1>
         <div class="search">
             <input type="text" name="interests" placeholder="Введите интересующие вас параметры...">
         </div>
 
-        <div class="previous">
-            <button class="button"><</button>
-        </div>
-        <div class="photo">
-            <p>Фотка типа</p>
-        </div>
-        <div class="next">
-            <button class="button">></button>
+        <div class="viewing">
+            <div class="previous">
+                <button class="button"><</button>
+            </div>
+            <div class="photo">
+                <p>Фотка типа</p>
+            </div>
+            <div class="next">
+                <button class="button">></button>
+            </div>
         </div>
 
         <h2>Имя Фамилия</h2>
