@@ -5,11 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Knowledge</title>
     <style>
+        .container {
+                max-width: 600px;
+                margin: auto;
+                background-color: var(--tg-theme-secondary-bg-color);
+                border-radius: 10px;
+                padding: 20px;
+            }
+
         body {
             font-family: Arial, sans-serif;
             background-color: var(--tg-theme-bg-color);
             color: var(--tg-theme-text-color);
             margin: 0;
+
 
         }
         .back button {
@@ -36,12 +45,23 @@
     </style>
 </head>
 <body>
-    <div class="back">
-        <button class="button" onclick="window.location.href='index.html';">Назад</button>
+    <div class="container">
+        <div class="back">
+            <button class="button" onclick="window.location.href='index.html';">Назад</button>
+        </div>
+        <h1>База знаний</h1>
+        <button class="button">Шаблоны договоров</button>
+        <button class="button">Подрядчики</button>
+        <button class="button">Что то ещё</button>
     </div>
-    <h1>База знаний</h1>
-    <button class="button">Шаблоны договоров</button>
-    <button class="button">Подрядчики</button>
-    <button class="button">Что то ещё</button>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+        let tg = window.Telegram.WebApp;
+
+        Telegram.WebApp.onEvent('themeChanged', function() {
+            document.body.style.backgroundColor = Telegram.WebApp.themeParams.bg_color;
+            document.body.style.color = Telegram.WebApp.themeParams.text_color;
+        });
+        </script>
 </body>
 </html>
