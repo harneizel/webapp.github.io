@@ -9,12 +9,6 @@ fetch('http://147.45.246.252/user_info/${tg.initDataUnsafe.user.id}')
 
 tg.expand();
 
-tg.MainButton.text = "Changed Text";
-tg.MainButton.setText("Changed Text1");
-tg.MainButton.textColor = "#F55353";
-tg.MainButton.color = "#143F6B";
-tg.MainButton.setParams({"color": "#143F6B"});
-
 document.getElementById("name").innerHTML = tg.initDataUnsafe.user.first_name;
 document.getElementById("family").innerHTML =tg.initDataUnsafe.user.last_name;
 
